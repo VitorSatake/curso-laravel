@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,7 @@ use App\Http\Controllers\ProdutoController;
 //     return redirect()->route('admin.clientes');
 // });
 
-Route::get('/', [ProdutoController::class, 'index'])->name('produto.index'); // controllers
-
-Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name('produto.show'); // controllers
+Route::resource('produtos', ProdutoController::class);
 
 // // Grupo de rotas
 // Route::prefix('admin')->group(function(){
