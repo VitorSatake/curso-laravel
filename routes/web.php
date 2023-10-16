@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function(){
     });
 });
 
-
+//teste
 
 
 // Route::get('/empresa', function(){
