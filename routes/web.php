@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProdutoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,24 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return redirect()->route('admin.clientes');
+// });
 
-// Grupo de rotas
-Route::prefix('admin')->group(function(){
-    Route::get('dashboard', function(){
-        return "dashboard";
-    });
+Route::get('/', [ProdutoController::class, 'index'])->name('produto.index'); // controllers
+
+Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name('produto.show'); // controllers
+
+// // Grupo de rotas
+// Route::prefix('admin')->group(function(){
+//     Route::get('dashboard', function(){
+//         return "dashboard";
+//     });
+ 
+// Route::group([
+//     'prefix' => 'admin',
+//     'as' => 'admin.'
+// ], function(){
+//     Route::get('dashboard', function(){
+//         return "dashboard";
+//     })->name('dashboard');
+
+//     Route::get('users', function(){
+//         return "users";
+//     })->name('users');
     
-    Route::get('users', function(){
-        return "users";
-    });
-    
-    Route::get('clientes', function(){
-        return "clientes";
-    });
-});
+//     Route::get('clientes', function(){
+//         return "clientes";
+//     })->name('clientes');
+// });
 
 
 
