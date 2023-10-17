@@ -17,8 +17,8 @@ class CategoriaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->unique()->word, // gera um fake de palavra unica para papolar o banco
-            'descricao' => $this->faker->text, // gera um fake de texto para papolar o banco
+            'nome' => $this->faker->unique()->word, // gera um fake de palavra unica para papular o banco
+            'descricao' => $this->faker->text, // gera um fake de texto para papular o banco
         ];
     }
 }

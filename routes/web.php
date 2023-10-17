@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('produtos', ProdutoController::class);
 
+
 // // Grupo de rotas
 // Route::prefix('admin')->group(function(){
 //     Route::get('dashboard', function(){
