@@ -3,7 +3,66 @@
 
 @section('conteudo')
 
-<h1> Essa é nossa home </h1>
+
+<div class="row container">
+
+    @foreach ($produtos as $produto)
+    <div class="col s12 m3"> 
+        <div class="card">
+            <div class="card-image">
+            <img src="{{ $produto->imagem }}">
+          
+            <a href="{{ route('site.details', $produto->slug)}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
+            </div>
+            <div class="card-content">
+            <span class="card-title">{{ $produto->nome }}</span>
+            <p>{{ Str::limit($produto->descricao, 20) }}</p>
+        </div>
+        </div>
+        </div>
+
+    @endforeach
+    <div>
+
+    <div class="row center">
+        {{ $produtos->links('custom/pagination') }}
+    </div>
+    
+
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {{--Isso é um comentario--}} 
 
     {{-- isset($nome) ? 'existe' : 'não existe' operador ternario--}}
@@ -12,13 +71,13 @@
 
     {{--Estrutura de controle--}}
 
-    @if ($nome == 'rodrigox')
+    {{-- @if ($nome == 'rodrigox')
         true
     @else
         false
     @endif
         
-    @unless ($nome == 'rodrigox') {{--contraio do if, imprime true se a condição for falsa--}}
+    @unless ($nome == 'rodrigox') {{--contraio do if, imprime true se a condição for falsa
     true
     @else
         false
@@ -35,26 +94,26 @@
             default
     @endswitch
 
-    @isset($nome) {{--se existe a variavel nome--}}
+    @isset($nome) {{--se existe a variavel nome
         existe
     @endisset
 
-    @empty($nome) {{--se a variavel nome está vazia--}}
+    @empty($nome) {{--se a variavel nome está vazia
         esta vazia
     @endempty
 
-    @auth {{--verifica se o usuario está autenticado--}}
+    @auth {{--verifica se o usuario está autenticado
         está autenticado
     @endauth
 
-    @guest {{--retorn true se o usuario nao está autenticado--}}
+    {{-- @guest {{--retorn true se o usuario nao está autenticado
         nao está autenticado
-    @endguest
+    @endguest  --}}
 
     {{--Estruturas de repetição--}} 
 
     
-    @for ($i = 0; $i <= 10; $i++)
+    {{-- @for ($i = 0; $i <= 10; $i++)
         valor atual é {{ $i }} <br>
     @endfor
 
@@ -69,8 +128,8 @@
     @endphp
     @endwhile
 
-    @forelse ($frutas as $fruta) {{--forelsa trabalha com valores vazios, caso estejam--}}
-        {{ $fruta }} <br>
+    @forelse ($frutas as $fruta) forelsa trabalha com valores vazios, caso estejam --}}
+        {{-- {{ $fruta }} <br>
     @empty
         array está vazio
     @endforelse
@@ -81,9 +140,9 @@
         @slot('paragrafo')
             Texto qualquer vindo do slot
         @endslot
-    @endcomponent
+    @endcomponent --}}
 
-    @push('style')
+    {{-- @push('style')
         <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     @endpush
@@ -91,7 +150,7 @@
     @push('script')
         <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    @endpush
+    @endpush --}}
 
 @endsection
 

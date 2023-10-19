@@ -15,14 +15,15 @@ class ProdutoController extends Controller
     {
         //return "index";
 
-        //$produtos = Produto::all();
+        $produtos = Produto::paginate(3);
         //return dd($produtos);
-        $nome = "rodrigo";
-        $idade = 28;
-        $frutas = ['banana', 'laranja', 'maçã'];
-        $html = "<h1> Olá eu sou H1 </h1>";
+        // $nome = "rodrigo";
+        // $idade = 28;
+        // // $frutas = ['banana', 'laranja', 'maçã'];
+        // $html = "<h1> Olá eu sou H1 </h1>";
 
-        return view('site/home', compact('nome', 'idade', 'html', 'frutas'));
+        // return view('site/home', compact('nome', 'idade', 'html'));
+        return view('site/home', compact('produtos'));
     }
 
     /**
