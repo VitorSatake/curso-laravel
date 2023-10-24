@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Gate;
 
 class SiteController extends Controller
 {
@@ -20,7 +21,18 @@ class SiteController extends Controller
 
         $produto = Produto::where('slug', $slug)->first();
 
-        return view('site.details', compact('produto'));
+        //Gate::authorize('ver-produto', $produto); autorização para ver os detalhes
+        //$this->authorize('verProduto', $produto); autorização para ver os detalhes
+
+        if(Gate::allows('ver-produto', $produto)) { //permite
+           return view('site.details', compact('produto'));
+        }
+
+        if(Gate::denies('ver-produto', $produto)) { // proibe e redireciona para o index
+            return redirect()->route('site.index');
+        }
+
+        
     }
 
     public function categoria($id) {
