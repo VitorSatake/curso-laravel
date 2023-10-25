@@ -21,16 +21,16 @@ class SiteController extends Controller
 
         $produto = Produto::where('slug', $slug)->first();
 
-        //Gate::authorize('ver-produto', $produto); autorização para ver os detalhes
-        //$this->authorize('verProduto', $produto); autorização para ver os detalhes
+        //Gate::authorize('ver-produto', $produto); //autorização para ver os detalhes
+        //$this->authorize('verProduto', $produto); //autorização para ver os detalhes
 
         if(Gate::allows('ver-produto', $produto)) { //permite
            return view('site.details', compact('produto'));
         }
 
-        if(Gate::denies('ver-produto', $produto)) { // proibe e redireciona para o index
-            return redirect()->route('site.index');
-        }
+        //if(Gate::denies('ver-produto', $produto)) { // proibe e redireciona para o index
+        //    return redirect()->route('site.index');
+       // }
 
         
     }

@@ -33,7 +33,7 @@ class DashboardController extends Controller
         }
 
         // Formatar para chartJS
-        $userLabel = "Comparativo de cadastros de usuários";
+        $userLabel = "'Comparativo de cadastros de usuários'";
         $userAno = implode(',', $ano);
         $userTotal = implode(',', $total);
 
